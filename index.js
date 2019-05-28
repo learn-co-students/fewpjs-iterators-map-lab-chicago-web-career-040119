@@ -11,6 +11,20 @@ const tutorials = [
   'what is JSONP?'
 ];
 
+// map() takes 2 arguments--a callback and the optional context.
+// The callback runs for each value in an array and returns each new value in the resulting array.
+// It returns a new array that is the same length as the original array and saves time while making
+// the code simpler and easy to read.
+
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(function(element) {
+    //take each element in the array and split ' '
+    element = element.split(' ')
+    for (let i = 0; i < element.length; i++) {
+      //for each element first letter is upper case + the rest of the letters minus the first
+      element[i] = element[i].charAt(0).toUpperCase() + element[i].slice(1);
+      //"what" becomes "W + hat"
+    }
+    return element.join(' ')
+  })
 }
